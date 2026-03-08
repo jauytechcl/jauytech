@@ -1,47 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>JauyTech | Automatización con IA</title>
-
-<style>
-body{
-font-family: Arial, sans-serif;
-background:#0f172a;
-color:white;
-text-align:center;
-padding:100px;
-}
-
-h1{
-font-size:48px;
-}
-
-p{
-font-size:20px;
-color:#cbd5e1;
-}
-
-button{
-padding:15px 30px;
-font-size:18px;
-background:#22c55e;
-border:none;
-border-radius:8px;
-color:white;
-cursor:pointer;
-margin-top:30px;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JauyTech | Automatización con IA</title>
+  <meta
+    name="description"
+    content="JauyTech impulsa automatización con inteligencia artificial para empresas que quieren escalar procesos, ahorrar tiempo y mejorar resultados."
+  />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
+  <header class="header">
+    <div class="container nav">
+      <a href="#" class="logo">JauyTech</a>
 
-<h1>JauyTech</h1>
+      <nav class="menu">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
 
-<p>Automatización inteligente con Inteligencia Artificial</p>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-content">
+        <p class="eyebrow">Automatización inteligente para empresas</p>
+        <h1>Impulsa tu negocio con IA, automatización y soluciones digitales</h1>
+        <p class="hero-text">
+          Diseñamos soluciones modernas para optimizar procesos, reducir tareas
+          manuales y crear experiencias más rápidas, eficientes y escalables.
+        </p>
 
-<button>Conocer servicios</button>
+        <div class="hero-actions">
+          <a href="#contacto" class="btn btn-primary">Hablemos</a>
+          <a href="#servicios" class="btn btn-secondary">Ver servicios</a>
+        </div>
+      </div>
+    </section>
 
+    <section class="services" id="servicios">
+      <div class="container">
+        <div class="section-head">
+          <p class="section-tag">Servicios</p>
+          <h2>Soluciones pensadas para transformar procesos</h2>
+          <p>
+            Ayudamos a empresas y equipos a incorporar inteligencia artificial
+            de forma útil, práctica y orientada a resultados.
+          </p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon">01</div>
+            <h3>Automatización de procesos</h3>
+            <p>
+              Diseñamos flujos para eliminar tareas repetitivas, reducir tiempos
+              operativos y mejorar la eficiencia del negocio.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">02</div>
+            <h3>Integración con IA</h3>
+            <p>
+              Implementamos soluciones con inteligencia artificial para atención,
+              clasificación, análisis de datos, asistencia y productividad.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">03</div>
+            <h3>Desarrollo de soluciones digitales</h3>
+            <p>
+              Creamos páginas web, herramientas internas y experiencias
+              digitales modernas alineadas a tu marca y tus objetivos.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contacto">
+      <div class="container contact-box">
+        <div class="contact-info">
+          <p class="section-tag">Contacto</p>
+          <h2>Conversemos sobre tu próximo proyecto</h2>
+          <p>
+            Si buscas automatizar procesos, incorporar IA o crear una solución
+            digital moderna, podemos ayudarte.
+          </p>
+
+          <div class="contact-data">
+            <p><strong>Email:</strong> contacto@jauytech.com</p>
+            <p><strong>Ubicación:</strong> Chile</p>
+          </div>
+        </div>
+
+        <form class="contact-form">
+          <input type="text" placeholder="Tu nombre" />
+          <input type="email" placeholder="Tu correo" />
+          <textarea rows="5" placeholder="Cuéntame qué necesitas"></textarea>
+          <button type="submit" class="btn btn-primary">Enviar consulta</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <p>© 2026 JauyTech. Todos los derechos reservados.</p>
+    </div>
+  </footer>
 </body>
 </html>
