@@ -1134,14 +1134,6 @@
     const emailForm = document.getElementById('emailForm');
     const formSuccess = document.getElementById('formSuccess');
 
-    if (window.location.hash === '#contacto-enviado') {
-      formSuccess.classList.add('show');
-      openModal('emailModal');
-      if (window.history && window.history.replaceState) {
-        window.history.replaceState(null, '', window.location.pathname + window.location.search);
-      }
-    }
-
     emailForm.addEventListener('submit', async function (e) {
       e.preventDefault();
       formSuccess.classList.remove('show');
