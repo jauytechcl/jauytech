@@ -3,115 +3,1146 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JauyTech | Automatización con IA</title>
-  <meta
-    name="description"
-    content="JauyTech impulsa automatización con inteligencia artificial para empresas que quieren escalar procesos, ahorrar tiempo y mejorar resultados."
-  />
-  <link rel="stylesheet" href="styles.css" />
+  <title>JauyTech | Automatización de WhatsApp con IA</title>
+  <meta name="description" content="JauyTech ayuda a empresas a automatizar WhatsApp con IA, flujos inteligentes y experiencias de atención más rápidas, escalables y profesionales." />
+  <style>
+    :root {
+      --bg: #0a0a0a;
+      --bg-soft: #111111;
+      --bg-panel: rgba(255, 255, 255, 0.04);
+      --bg-panel-strong: rgba(255, 255, 255, 0.06);
+      --border: rgba(255, 255, 255, 0.10);
+      --border-strong: rgba(255, 255, 255, 0.16);
+      --text: #f5f5f7;
+      --muted: #a1a1aa;
+      --soft: #d4d4d8;
+      --white: #ffffff;
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.25);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 16px;
+      --radius-pill: 999px;
+      --container: 1180px;
+      --accent: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.68));
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,255,255,0.10), transparent 24%),
+        radial-gradient(circle at 85% 10%, rgba(255,255,255,0.06), transparent 22%),
+        radial-gradient(circle at 50% 100%, rgba(255,255,255,0.05), transparent 30%),
+        linear-gradient(180deg, #090909 0%, #050505 100%);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: radial-gradient(circle at center, black 45%, transparent 90%);
+      -webkit-mask-image: radial-gradient(circle at center, black 45%, transparent 90%);
+      pointer-events: none;
+      opacity: 0.35;
+      z-index: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(92%, var(--container));
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      background: rgba(10, 10, 10, 0.72);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .nav {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.26), transparent 40%),
+        linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent, rgba(255,255,255,0.14), transparent);
+      transform: translateX(-100%);
+      animation: shine 5s linear infinite;
+    }
+
+    .brand-mark span {
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--white);
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+    }
+
+    .brand-text strong {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-text small {
+      color: var(--muted);
+      font-size: 0.76rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .menu a {
+      color: var(--muted);
+      font-size: 0.96rem;
+      transition: color 0.25s ease, transform 0.25s ease;
+    }
+
+    .menu a:hover {
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+
+    .nav-cta {
+      padding: 12px 18px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--white);
+      font-weight: 600;
+      transition: 0.25s ease;
+    }
+
+    .nav-cta:hover,
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: var(--border-strong);
+    }
+
+    .hero {
+      padding: 88px 0 72px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .eyebrow,
+    .section-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      color: var(--soft);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.7rem, 6vw, 5.25rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      max-width: 760px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 .gradient {
+      background: var(--accent);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-text {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.08rem;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 24px;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      font-weight: 700;
+      transition: transform 0.25s ease, opacity 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--white);
+      color: #0a0a0a;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      opacity: 0.95;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.03);
+      color: var(--white);
+      border-color: var(--border);
+    }
+
+    .hero-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .stat-chip {
+      padding: 10px 14px;
+      border-radius: var(--radius-pill);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--soft);
+      font-size: 0.92rem;
+    }
+
+    .hero-panel {
+      border: 1px solid rgba(255,255,255,0.10);
+      background:
+        radial-gradient(circle at 15% 0%, rgba(255,255,255,0.10), transparent 35%),
+        linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border-radius: 30px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      animation: floatSoft 6s ease-in-out infinite;
+    }
+
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: auto -10% -35% auto;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 65%);
+      filter: blur(14px);
+      pointer-events: none;
+    }
+
+    .panel-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .panel-top small,
+    .panel-head small {
+      color: var(--muted);
+      font-size: 0.84rem;
+    }
+
+    .signal {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: var(--radius-pill);
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--soft);
+      font-size: 0.82rem;
+    }
+
+    .signal-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #8ef3b2;
+      box-shadow: 0 0 16px rgba(142,243,178,0.9);
+      animation: pulse 2s infinite;
+    }
+
+    .flow-card,
+    .mini-card,
+    .contact-shell {
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .flow-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 22px;
+      padding: 18px;
+      margin-bottom: 14px;
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .panel-head h3 {
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    .flow-step {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .flow-step:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .step-num {
+      min-width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+
+    .flow-step p {
+      color: var(--soft);
+      font-size: 0.94rem;
+    }
+
+    .flow-step p strong {
+      display: block;
+      color: var(--white);
+      margin-bottom: 2px;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .mini-card {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .mini-card strong {
+      display: block;
+      font-size: 1.3rem;
+      margin-bottom: 4px;
+    }
+
+    .mini-card span {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .section {
+      padding: 36px 0 90px;
+    }
+
+    .section-head {
+      max-width: 780px;
+      margin-bottom: 38px;
+    }
+
+    .section-head h2,
+    .contact-copy h2 {
+      font-size: clamp(2rem, 4vw, 3.35rem);
+      line-height: 1.05;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+
+    .section-head p,
+    .contact-copy p,
+    .contact-meta p,
+    .service-card p,
+    .use-card p {
+      color: var(--muted);
+    }
+
+    .services-grid,
+    .use-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card,
+    .use-card {
+      position: relative;
+      padding: 26px;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255,255,255,0.10);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+      overflow: hidden;
+    }
+
+    .service-card:hover,
+    .use-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,255,255,0.18);
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+    }
+
+    .service-card::after,
+    .use-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.08), transparent 25%, transparent 75%, rgba(255,255,255,0.04));
+      opacity: 0;
+      transition: opacity 0.28s ease;
+      pointer-events: none;
+    }
+
+    .service-card:hover::after,
+    .use-card:hover::after {
+      opacity: 1;
+    }
+
+    .service-num,
+    .use-icon {
+      width: 48px;
+      height: 48px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+      margin-bottom: 16px;
+      color: var(--white);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+
+    .service-card h3,
+    .use-card h3 {
+      font-size: 1.12rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .contact-section {
+      padding-bottom: 110px;
+    }
+
+    .contact-shell {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 36px;
+      border-radius: 34px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(255,255,255,0.10), transparent 30%),
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .contact-shell::before {
+      content: "";
+      position: absolute;
+      inset: auto auto -120px -120px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.10), transparent 65%);
+      filter: blur(10px);
+      pointer-events: none;
+    }
+
+    .contact-copy {
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-meta {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 22px;
+      flex-wrap: wrap;
+    }
+
+    .meta-box {
+      padding: 14px 18px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      min-width: 220px;
+    }
+
+    .meta-box strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.98rem;
+    }
+
+    .contact-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 26px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.62);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 1200;
+    }
+
+    .modal-overlay.show {
+      display: flex;
+    }
+
+    .modal-card {
+      width: min(100%, 520px);
+      padding: 22px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(17,17,17,0.98), rgba(12,12,12,0.98));
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      color: var(--white);
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .modal-card h3 {
+      font-size: 1.18rem;
+      margin-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+
+    .modal-card > p {
+      color: var(--muted);
+      font-size: 0.93rem;
+      margin-bottom: 16px;
+    }
+
+    form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .field,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+      color: var(--white);
+      border-radius: 16px;
+      padding: 15px 16px;
+      font: inherit;
+      outline: none;
+      transition: border-color 0.25s ease, background 0.25s ease, transform 0.2s ease;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    .field::placeholder,
+    textarea::placeholder {
+      color: #8f8f98;
+    }
+
+    .field:focus,
+    textarea:focus {
+      border-color: rgba(255,255,255,0.20);
+      background: rgba(255,255,255,0.07);
+      transform: translateY(-1px);
+    }
+
+    .form-note,
+    .success-message {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .success-message {
+      display: none;
+      margin-top: 4px;
+      color: var(--white);
+    }
+
+    .success-message.show {
+      display: block;
+    }
+
+    .floating-wa {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 1100;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.08));
+      box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+      display: grid;
+      place-items: center;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .floating-wa:hover {
+      transform: translateY(-4px) scale(1.02);
+      border-color: rgba(255,255,255,0.22);
+    }
+
+    .floating-wa svg {
+      width: 28px;
+      height: 28px;
+      fill: var(--white);
+    }
+
+    .footer {
+      padding: 26px 0 36px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.18); opacity: 0.72; }
+    }
+
+    @keyframes floatSoft {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    @keyframes shine {
+      0% { transform: translateX(-130%); }
+      35%, 100% { transform: translateX(130%); }
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .services-grid,
+      .use-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .menu {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 72px;
+      }
+
+      .mini-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.65rem;
+      }
+
+      .btn,
+      .nav-cta {
+        width: 100%;
+      }
+
+      .contact-shell {
+        padding: 24px;
+      }
+
+      .modal-card {
+        padding: 20px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .floating-wa {
+        right: 16px;
+        bottom: 16px;
+        width: 58px;
+        height: 58px;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="header">
     <div class="container nav">
-      <a href="#" class="logo">JauyTech</a>
+      <a class="brand" href="#inicio" aria-label="JauyTech">
+        <span class="brand-mark"><span>JT</span></span>
+        <span class="brand-text">
+          <strong>JauyTech</strong>
+          <small>WhatsApp + IA</small>
+        </span>
+      </a>
 
       <nav class="menu">
         <a href="#inicio">Inicio</a>
         <a href="#servicios">Servicios</a>
         <a href="#contacto">Contacto</a>
       </nav>
+
+      <a class="nav-cta" href="https://wa.me/56987383719?text=Hola%20JauyTech,%20quiero%20automatizar%20WhatsApp%20para%20mi%20negocio." target="_blank" rel="noopener noreferrer">WhatsApp</a>
     </div>
   </header>
 
   <main>
     <section class="hero" id="inicio">
-      <div class="container hero-content">
-        <p class="eyebrow">Automatización inteligente para empresas</p>
-        <h1>Impulsa tu negocio con IA, automatización y soluciones digitales</h1>
-        <p class="hero-text">
-          Diseñamos soluciones modernas para optimizar procesos, reducir tareas
-          manuales y crear experiencias más rápidas, eficientes y escalables.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#contacto" class="btn btn-primary">Hablemos</a>
-          <a href="#servicios" class="btn btn-secondary">Ver servicios</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="services" id="servicios">
-      <div class="container">
-        <div class="section-head">
-          <p class="section-tag">Servicios</p>
-          <h2>Soluciones pensadas para transformar procesos</h2>
-          <p>
-            Ayudamos a empresas y equipos a incorporar inteligencia artificial
-            de forma útil, práctica y orientada a resultados.
-          </p>
-        </div>
-
-        <div class="cards">
-          <article class="card">
-            <div class="card-icon">01</div>
-            <h3>Automatización de procesos</h3>
-            <p>
-              Diseñamos flujos para eliminar tareas repetitivas, reducir tiempos
-              operativos y mejorar la eficiencia del negocio.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="card-icon">02</div>
-            <h3>Integración con IA</h3>
-            <p>
-              Implementamos soluciones con inteligencia artificial para atención,
-              clasificación, análisis de datos, asistencia y productividad.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="card-icon">03</div>
-            <h3>Desarrollo de soluciones digitales</h3>
-            <p>
-              Creamos páginas web, herramientas internas y experiencias
-              digitales modernas alineadas a tu marca y tus objetivos.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact" id="contacto">
-      <div class="container contact-box">
-        <div class="contact-info">
-          <p class="section-tag">Contacto</p>
-          <h2>Conversemos sobre tu próximo proyecto</h2>
-          <p>
-            Si buscas automatizar procesos, incorporar IA o crear una solución
-            digital moderna, podemos ayudarte.
+      <div class="container hero-grid">
+        <div class="fade-up">
+          <span class="eyebrow">Automatización premium para negocios</span>
+          <h1>Convierte <span class="gradient">WhatsApp</span> en un canal real de ventas, atención y operación.</h1>
+          <p class="hero-text">
+            Automatiza WhatsApp para vender, atender y ordenar conversaciones con una experiencia más rápida y profesional.
           </p>
 
-          <div class="contact-data">
-            <p><strong>Email:</strong> contacto@jauytech.com</p>
-            <p><strong>Ubicación:</strong> Chile</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contacto">Solicitar propuesta</a>
+            <a class="btn btn-secondary" href="#servicios">Explorar servicios</a>
+          </div>
+
+          <div class="hero-stats">
+            <span class="stat-chip">Atención automática</span>
+            <span class="stat-chip">Leads por WhatsApp</span>
+            <span class="stat-chip">Escalable</span>
           </div>
         </div>
 
-        <form class="contact-form">
-          <input type="text" placeholder="Tu nombre" />
-          <input type="email" placeholder="Tu correo" />
-          <textarea rows="5" placeholder="Cuéntame qué necesitas"></textarea>
-          <button type="submit" class="btn btn-primary">Enviar consulta</button>
-        </form>
+        <aside class="hero-panel fade-up">
+          <div class="panel-top">
+            <small>Vista estratégica</small>
+            <span class="signal"><span class="signal-dot"></span> Operando</span>
+          </div>
+
+          <div class="flow-card">
+            <div class="panel-head">
+              <h3>Flujo de automatización WhatsApp</h3>
+              <small>Diseño JauyTech</small>
+            </div>
+
+            <div class="flow-step">
+              <span class="step-num">01</span>
+              <p><strong>Captura del contacto</strong> Desde campañas, web o QR.</p>
+            </div>
+            <div class="flow-step">
+              <span class="step-num">02</span>
+              <p><strong>Respuesta inmediata</strong> Bot, menú o IA según el caso.</p>
+            </div>
+            <div class="flow-step">
+              <span class="step-num">03</span>
+              <p><strong>Calificación del lead</strong> Segmentación por intención, rubro o urgencia.</p>
+            </div>
+            <div class="flow-step">
+              <span class="step-num">04</span>
+              <p><strong>Escalamiento inteligente</strong> Derivación a humano, agenda o venta.</p>
+            </div>
+          </div>
+
+          <div class="mini-grid">
+            <div class="mini-card">
+              <strong>24/7</strong>
+              <span>Disponibilidad continua para clientes y prospectos.</span>
+            </div>
+            <div class="mini-card">
+              <strong>+Orden</strong>
+              <span>Menos mensajes perdidos y mejor trazabilidad comercial.</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="servicios">
+      <div class="container">
+        <div class="section-head fade-up">
+          <span class="section-tag">Servicios</span>
+          <h2>Implementaciones claras, útiles y listas para negocio.</h2>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card fade-up">
+            <div class="service-num">01</div>
+            <h3>Atención automática</h3>
+            <p>Respuestas, menús y derivación inteligente.</p>
+          </article>
+
+          <article class="service-card fade-up">
+            <div class="service-num">02</div>
+            <h3>Ventas por WhatsApp</h3>
+            <p>Captura, calificación y seguimiento de leads.</p>
+          </article>
+
+          <article class="service-card fade-up">
+            <div class="service-num">03</div>
+            <h3>IA conversacional</h3>
+            <p>Escala conversaciones sin perder calidad.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="soluciones">
+      <div class="container">
+        <div class="section-head fade-up">
+          <span class="section-tag">Ideal para</span>
+          <h2>Negocios que usan WhatsApp como canal clave.</h2>
+        </div>
+
+        <div class="use-grid">
+          <article class="use-card fade-up">
+            <div class="use-icon">WA</div>
+            <h3>Ventas</h3>
+            <p>Más velocidad y mejor seguimiento.</p>
+          </article>
+
+          <article class="use-card fade-up">
+            <div class="use-icon">CX</div>
+            <h3>Soporte</h3>
+            <p>Menos fricción y mejor experiencia.</p>
+          </article>
+
+          <article class="use-card fade-up">
+            <div class="use-icon">OP</div>
+            <h3>Operación</h3>
+            <p>Confirmaciones, recordatorios y orden.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contacto">
+      <div class="container">
+        <div class="contact-shell fade-up">
+          <div class="contact-copy">
+            <span class="section-tag">Contacto</span>
+            <h2>Activa tu canal de WhatsApp con una experiencia simple y profesional.</h2>
+            <p>Elige cómo quieres contactarnos.</p>
+
+            <div class="contact-meta">
+              <div class="meta-box">
+                <strong>WhatsApp directo</strong>
+                <p>Respuesta rápida y simple.</p>
+              </div>
+              <div class="meta-box">
+                <strong>Formulario de contacto</strong>
+                <p>Déjanos tus datos y tu necesidad.</p>
+              </div>
+            </div>
+
+            <div class="contact-actions">
+              <button class="btn btn-primary" type="button" data-open-modal="waModal">Formulario a WhatsApp</button>
+              <button class="btn btn-secondary" type="button" data-open-modal="emailModal">Formulario de Contacto</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-overlay" id="waModal" aria-hidden="true">
+        <div class="modal-card">
+          <button class="modal-close" type="button" data-close-modal aria-label="Cerrar">×</button>
+          <h3>Formulario a WhatsApp</h3>
+          <p>Completa los datos y abre WhatsApp.</p>
+          <form id="waForm">
+            <input class="field" type="text" id="waName" placeholder="Tu nombre" required />
+            <input class="field" type="text" id="waBusiness" placeholder="Empresa o negocio" required />
+            <input class="field" type="email" id="waEmail" placeholder="Tu correo" required />
+            <textarea id="waMessage" placeholder="Cuéntame qué necesitas automatizar en WhatsApp" required></textarea>
+            <button class="btn btn-primary" type="submit">Ir a WhatsApp</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal-overlay" id="emailModal" aria-hidden="true">
+        <div class="modal-card">
+          <button class="modal-close" type="button" data-close-modal aria-label="Cerrar">×</button>
+          <h3>Formulario de Contacto</h3>
+          <p>Déjanos tus datos y tu mensaje.</p>
+          <form id="emailForm" action="https://formsubmit.co/urrutia.julio@icloud.com" method="POST">
+            <input class="field" type="text" name="nombre" placeholder="Tu nombre" required />
+            <input class="field" type="text" name="empresa" placeholder="Empresa o negocio" required />
+            <input class="field" type="email" name="email" placeholder="Tu correo" required />
+            <textarea name="mensaje" placeholder="Cuéntame qué necesitas automatizar en WhatsApp" required></textarea>
+            <input type="hidden" name="_subject" value="Nuevo lead desde JauyTech" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" value="https://jauytech.cl/#contacto-enviado" />
+            <button class="btn btn-primary" type="submit">Enviar información</button>
+            <p class="form-note">Debes activar el formulario la primera vez.</p>
+            <p id="formSuccess" class="success-message">Información enviada</p>
+          </form>
+        </div>
       </div>
     </section>
   </main>
 
+  <a class="floating-wa" href="https://wa.me/56987383719?text=Hola%20JauyTech,%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20automatizaci%C3%B3n%20de%20WhatsApp." target="_blank" rel="noopener noreferrer" aria-label="Escribir por WhatsApp">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M19.11 17.27c-.28-.14-1.63-.8-1.88-.89-.25-.09-.43-.14-.61.14-.18.28-.7.89-.85 1.08-.16.19-.31.21-.59.07-.28-.14-1.16-.42-2.22-1.34-.82-.73-1.38-1.63-1.54-1.91-.16-.28-.02-.43.12-.57.12-.12.28-.31.42-.47.14-.16.19-.28.28-.47.09-.19.05-.35-.02-.49-.07-.14-.61-1.47-.84-2.02-.22-.52-.44-.45-.61-.46h-.52c-.19 0-.49.07-.75.35-.26.28-.98.96-.98 2.34 0 1.38 1 2.72 1.14 2.91.14.19 1.96 2.99 4.75 4.19.66.28 1.18.45 1.59.58.67.21 1.28.18 1.76.11.54-.08 1.63-.67 1.87-1.32.23-.66.23-1.22.16-1.34-.07-.12-.26-.19-.54-.33Z"></path>
+      <path d="M16.02 3.2c-7.07 0-12.8 5.72-12.8 12.79 0 2.25.59 4.45 1.7 6.39L3 29l6.79-1.78a12.75 12.75 0 0 0 6.23 1.6h.01c7.06 0 12.79-5.73 12.79-12.8 0-3.42-1.33-6.64-3.75-9.06A12.7 12.7 0 0 0 16.02 3.2Zm0 23.46h-.01a10.63 10.63 0 0 1-5.42-1.49l-.39-.23-4.03 1.06 1.08-3.93-.25-.41a10.6 10.6 0 0 1-1.64-5.69c0-5.89 4.79-10.68 10.69-10.68 2.85 0 5.53 1.11 7.54 3.13a10.6 10.6 0 0 1 3.13 7.54c0 5.9-4.79 10.7-10.7 10.7Z"></path>
+    </svg>
+  </a>
+
   <footer class="footer">
     <div class="container footer-content">
-      <p>© 2026 JauyTech. Todos los derechos reservados.</p>
+      <p>© 2026 JauyTech</p>
+      <p>
+        <a href="privacy-policy.html">Política de Privacidad</a> ·
+        <a href="terms-of-service.html">Condiciones de Servicio</a>
+      </p>
     </div>
   </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+
+    const modalTriggers = document.querySelectorAll('[data-open-modal]');
+    const modals = document.querySelectorAll('.modal-overlay');
+    const closeButtons = document.querySelectorAll('[data-close-modal]');
+
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.add('show');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeModal(modal) {
+      if (!modal) return;
+      modal.classList.remove('show');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    modalTriggers.forEach((trigger) => {
+      trigger.addEventListener('click', () => openModal(trigger.dataset.openModal));
+    });
+
+    closeButtons.forEach((button) => {
+      button.addEventListener('click', () => closeModal(button.closest('.modal-overlay')));
+    });
+
+    modals.forEach((modal) => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal(modal);
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        modals.forEach((modal) => {
+          if (modal.classList.contains('show')) closeModal(modal);
+        });
+      }
+    });
+
+    const waForm = document.getElementById('waForm');
+    waForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById('waName').value.trim();
+      const business = document.getElementById('waBusiness').value.trim();
+      const email = document.getElementById('waEmail').value.trim();
+      const message = document.getElementById('waMessage').value.trim();
+
+      const phone = '56987383719';
+      const waMessage = [
+        'Hola JauyTech, quiero información sobre automatización de WhatsApp.',
+        '',
+        `Nombre: ${name}`,
+        `Empresa: ${business}`,
+        `Correo: ${email}`,
+        `Necesidad: ${message}`
+      ].join('\n');
+
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(waMessage)}`;
+      window.open(url, '_blank', 'noopener');
+      closeModal(document.getElementById('waModal'));
+      waForm.reset();
+    });
+
+    const emailForm = document.getElementById('emailForm');
+    const formSuccess = document.getElementById('formSuccess');
+
+    if (window.location.hash === '#contacto-enviado') {
+      formSuccess.classList.add('show');
+      openModal('emailModal');
+    }
+
+    emailForm.addEventListener('submit', function () {
+      formSuccess.classList.add('show');
+    });
+  </script>
 </body>
 </html>
