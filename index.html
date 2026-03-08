@@ -532,6 +532,55 @@
       margin-bottom: 10px;
     }
 
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .showcase-card {
+      position: relative;
+      padding: 18px;
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(255,255,255,0.10);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+      transition: transform 0.28s ease, border-color 0.28s ease, background 0.28s ease;
+    }
+
+    .showcase-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,255,255,0.18);
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+    }
+
+    .showcase-media {
+      overflow: hidden;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 16px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .showcase-media img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .showcase-card h3 {
+      font-size: 1.12rem;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+
+    .showcase-card p {
+      color: var(--muted);
+    }
+
     .contact-section {
       padding-bottom: 110px;
     }
@@ -967,6 +1016,34 @@
             <div class="use-icon">OP</div>
             <h3>Operación</h3>
             <p>Confirmaciones, recordatorios y orden.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section class="section" id="ejemplos">
+      <div class="container">
+        <div class="section-head fade-up">
+          <span class="section-tag">Automatizaciones reales</span>
+          <h2>Ejemplos visuales para distintos tipos de negocio.</h2>
+        </div>
+
+        <div class="showcase-grid">
+          <article class="showcase-card fade-up">
+            <div class="showcase-media">
+              <img src="img/demo-clinica.png" alt="Ejemplo de automatización de WhatsApp para clínica" />
+            </div>
+            <h3>Clínicas y centros médicos</h3>
+            <p>Flujos para agendamiento, consultas frecuentes y coordinación de citas por WhatsApp.</p>
+          </article>
+
+          <article class="showcase-card fade-up">
+            <div class="showcase-media">
+              <img src="img/demo-tienda.png" alt="Ejemplo de automatización de WhatsApp para tienda" />
+            </div>
+            <h3>Tiendas y comercios</h3>
+            <p>Respuestas sobre productos, precios, promociones y atención comercial en un solo canal.</p>
           </article>
         </div>
       </div>
