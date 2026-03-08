@@ -1019,7 +1019,7 @@
           <button class="modal-close" type="button" data-close-modal aria-label="Cerrar">×</button>
           <h3>Formulario de Contacto</h3>
           <p>Déjanos tus datos y tu mensaje.</p>
-          <form id="emailForm" action="https://formsubmit.co/urrutia.julio@icloud.com" method="POST">
+          <form id="emailForm" action="https://formsubmit.co/ajax/urrutia.julio@icloud.com" method="POST">
             <input class="field" type="text" name="nombre" placeholder="Tu nombre" required />
             <input class="field" type="text" name="empresa" placeholder="Empresa o negocio" required />
             <input class="field" type="email" name="email" placeholder="Tu correo" required />
@@ -1027,7 +1027,6 @@
             <input type="hidden" name="_subject" value="Nuevo lead desde JauyTech" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
-            <input type="hidden" name="_next" value="https://jauytech.cl/#contacto-enviado" />
             <button class="btn btn-primary" type="submit">Enviar información</button>
             <p class="form-note">Debes activar el formulario la primera vez.</p>
             <p id="formSuccess" class="success-message">Información enviada</p>
@@ -1140,8 +1139,26 @@
       openModal('emailModal');
     }
 
-    emailForm.addEventListener('submit', function () {
-      formSuccess.classList.add('show');
+    emailForm.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      formSuccess.classList.remove('show');
+
+      try {
+        const response = await fetch(emailForm.action, {
+          method: 'POST',
+          body: new FormData(emailForm),
+          headers: {
+            Accept: 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          emailForm.reset();
+          formSuccess.classList.add('show');
+        }
+      } catch (error) {
+        console.error(error);
+      }
     });
   </script>
 </body>
