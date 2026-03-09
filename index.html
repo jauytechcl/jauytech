@@ -8,9 +8,6 @@
   <style>
     :root {
       --bg: #0a0a0a;
-      --bg-soft: #111111;
-      --bg-panel: rgba(255, 255, 255, 0.04);
-      --bg-panel-strong: rgba(255, 255, 255, 0.06);
       --border: rgba(255, 255, 255, 0.10);
       --border-strong: rgba(255, 255, 255, 0.16);
       --text: #f5f5f7;
@@ -20,22 +17,13 @@
       --shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
       --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.25);
       --radius-xl: 28px;
-      --radius-lg: 20px;
-      --radius-md: 16px;
       --radius-pill: 999px;
       --container: 1180px;
       --accent: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(255,255,255,0.68));
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -64,15 +52,8 @@
       z-index: 0;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
 
     .container {
       width: min(92%, var(--container));
@@ -120,15 +101,6 @@
       overflow: hidden;
     }
 
-    .brand-mark::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, transparent, rgba(255,255,255,0.14), transparent);
-      transform: translateX(-100%);
-      animation: shine 5s linear infinite;
-    }
-
     .brand-mark span {
       font-size: 0.78rem;
       font-weight: 800;
@@ -158,7 +130,7 @@
     .menu {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 24px;
     }
 
     .menu a {
@@ -188,9 +160,7 @@
       border-color: var(--border-strong);
     }
 
-    .hero {
-      padding: 88px 0 72px;
-    }
+    .hero { padding: 88px 0 72px; }
 
     .hero-grid {
       display: grid;
@@ -258,9 +228,7 @@
       font: inherit;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
+    .btn:hover { transform: translateY(-2px); }
 
     .btn-primary {
       background: var(--white);
@@ -268,9 +236,7 @@
       box-shadow: var(--shadow-soft);
     }
 
-    .btn-primary:hover {
-      opacity: 0.95;
-    }
+    .btn-primary:hover { opacity: 0.95; }
 
     .btn-secondary {
       background: rgba(255,255,255,0.03);
@@ -356,7 +322,8 @@
 
     .flow-card,
     .mini-card,
-    .contact-shell {
+    .contact-shell,
+    .showcase-card {
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
     }
@@ -442,9 +409,7 @@
       font-size: 0.88rem;
     }
 
-    .section {
-      padding: 36px 0 90px;
-    }
+    .section { padding: 36px 0 90px; }
 
     .section-head {
       max-width: 780px;
@@ -463,21 +428,28 @@
     .contact-copy p,
     .contact-meta p,
     .service-card p,
-    .use-card p {
+    .use-card p,
+    .showcase-card p {
       color: var(--muted);
     }
 
     .services-grid,
-    .use-grid {
+    .use-grid,
+    .showcase-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 22px;
     }
 
+    .showcase-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
     .service-card,
-    .use-card {
+    .use-card,
+    .showcase-card {
       position: relative;
-      padding: 26px;
+      padding: 20px;
       border-radius: var(--radius-xl);
       border: 1px solid rgba(255,255,255,0.10);
       background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
@@ -487,26 +459,11 @@
     }
 
     .service-card:hover,
-    .use-card:hover {
+    .use-card:hover,
+    .showcase-card:hover {
       transform: translateY(-6px);
       border-color: rgba(255,255,255,0.18);
       background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
-    }
-
-    .service-card::after,
-    .use-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.08), transparent 25%, transparent 75%, rgba(255,255,255,0.04));
-      opacity: 0;
-      transition: opacity 0.28s ease;
-      pointer-events: none;
-    }
-
-    .service-card:hover::after,
-    .use-card:hover::after {
-      opacity: 1;
     }
 
     .service-num,
@@ -525,35 +482,12 @@
     }
 
     .service-card h3,
-    .use-card h3 {
+    .use-card h3,
+    .showcase-card h3 {
       font-size: 1.12rem;
       line-height: 1.2;
       letter-spacing: -0.02em;
       margin-bottom: 10px;
-    }
-
-
-    .showcase-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
-    .showcase-card {
-      position: relative;
-      padding: 18px;
-      border-radius: var(--radius-xl);
-      border: 1px solid rgba(255,255,255,0.10);
-      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.025));
-      box-shadow: var(--shadow-soft);
-      overflow: hidden;
-      transition: transform 0.28s ease, border-color 0.28s ease, background 0.28s ease;
-    }
-
-    .showcase-card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(255,255,255,0.18);
-      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
     }
 
     .showcase-media {
@@ -570,20 +504,7 @@
       display: block;
     }
 
-    .showcase-card h3 {
-      font-size: 1.12rem;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      margin-bottom: 8px;
-    }
-
-    .showcase-card p {
-      color: var(--muted);
-    }
-
-    .contact-section {
-      padding-bottom: 110px;
-    }
+    .contact-section { padding-bottom: 110px; }
 
     .contact-shell {
       max-width: 880px;
@@ -598,8 +519,6 @@
       position: relative;
       overflow: hidden;
       text-align: center;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
     }
 
     .contact-shell::before {
@@ -664,9 +583,7 @@
       z-index: 1200;
     }
 
-    .modal-overlay.show {
-      display: flex;
-    }
+    .modal-overlay.show { display: flex; }
 
     .modal-card {
       width: min(100%, 520px);
@@ -739,16 +656,22 @@
       transform: translateY(-1px);
     }
 
-    .form-note,
-    .success-message {
+    .form-note {
       font-size: 0.86rem;
       color: var(--muted);
     }
 
     .success-message {
       display: none;
-      margin-top: 4px;
+      margin-top: 8px;
       color: var(--white);
+      font-size: 1rem;
+      font-weight: 700;
+      text-align: center;
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
     }
 
     .success-message.show {
@@ -819,11 +742,6 @@
       50% { transform: translateY(-6px); }
     }
 
-    @keyframes shine {
-      0% { transform: translateX(-130%); }
-      35%, 100% { transform: translateX(130%); }
-    }
-
     @media (max-width: 1080px) {
       .hero-grid,
       .services-grid,
@@ -833,34 +751,23 @@
     }
 
     @media (max-width: 760px) {
-      .menu {
-        display: none;
-      }
+      .menu { display: none; }
 
-      .hero {
-        padding-top: 72px;
-      }
+      .hero { padding-top: 72px; }
 
-      .mini-grid {
+      .mini-grid,
+      .showcase-grid {
         grid-template-columns: 1fr;
       }
 
-      .hero h1 {
-        font-size: 2.65rem;
-      }
+      .hero h1 { font-size: 2.65rem; }
 
       .btn,
-      .nav-cta {
-        width: 100%;
-      }
+      .nav-cta { width: 100%; }
 
-      .contact-shell {
-        padding: 24px;
-      }
+      .contact-shell { padding: 24px; }
 
-      .modal-card {
-        padding: 20px;
-      }
+      .modal-card { padding: 20px; }
 
       .footer-content {
         flex-direction: column;
@@ -875,21 +782,11 @@
       }
     }
   </style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-R95TD3Y62Q"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-R95TD3Y62Q');
-</script>
-
 </head>
 <body>
   <header class="header">
     <div class="container nav">
-      <a class="brand" href="#inicio" aria-label="JauyTech">
+      <a class="brand" href="index.html#inicio" aria-label="JauyTech">
         <span class="brand-mark"><span>JT</span></span>
         <span class="brand-text">
           <strong>JauyTech</strong>
@@ -898,9 +795,9 @@
       </a>
 
       <nav class="menu">
-        <a href="#inicio">Inicio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#contacto">Contacto</a>
+        <a href="index.html#inicio">Inicio</a>
+        <a href="index.html#servicios">Servicios</a>
+        <a href="index.html#contacto">Contacto</a>
       </nav>
 
       <a class="nav-cta" href="https://wa.me/56987383719?text=Hola%20JauyTech,%20quiero%20automatizar%20WhatsApp%20para%20mi%20negocio." target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -1031,7 +928,6 @@
       </div>
     </section>
 
-
     <section class="section" id="ejemplos">
       <div class="container">
         <div class="section-head fade-up">
@@ -1104,20 +1000,22 @@
       <div class="modal-overlay" id="emailModal" aria-hidden="true">
         <div class="modal-card">
           <button class="modal-close" type="button" data-close-modal aria-label="Cerrar">×</button>
-          <h3>Formulario de Contacto</h3>
-          <p>Déjanos tus datos y tu mensaje.</p>
-          <form id="emailForm" action="https://formsubmit.co/ajax/urrutia.julio@icloud.com" method="POST">
-            <input class="field" type="text" name="nombre" placeholder="Tu nombre" required />
-            <input class="field" type="text" name="empresa" placeholder="Empresa o negocio" required />
-            <input class="field" type="email" name="email" placeholder="Tu correo" required />
-            <textarea name="mensaje" placeholder="Cuéntame qué necesitas automatizar en WhatsApp" required></textarea>
-            <input type="hidden" name="_subject" value="Nuevo lead desde JauyTech" />
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="table" />
-            <button class="btn btn-primary" type="submit">Enviar información</button>
-            <p class="form-note">Debes activar el formulario la primera vez.</p>
-            <p id="formSuccess" class="success-message">Información enviada</p>
-          </form>
+          <div id="emailFormWrap">
+            <h3>Formulario de Contacto</h3>
+            <p>Déjanos tus datos y tu mensaje.</p>
+            <form id="emailForm" action="https://formsubmit.co/ajax/urrutia.julio@icloud.com" method="POST">
+              <input class="field" type="text" name="nombre" placeholder="Tu nombre" required />
+              <input class="field" type="text" name="empresa" placeholder="Empresa o negocio" required />
+              <input class="field" type="email" name="email" placeholder="Tu correo" required />
+              <textarea name="mensaje" placeholder="Cuéntame qué necesitas automatizar en WhatsApp" required></textarea>
+              <input type="hidden" name="_subject" value="Nuevo lead desde JauyTech" />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <button class="btn btn-primary" type="submit">Enviar información</button>
+              <p class="form-note">Debes activar el formulario la primera vez.</p>
+            </form>
+          </div>
+          <p id="formSuccess" class="success-message">Información enviada</p>
         </div>
       </div>
     </section>
@@ -1143,9 +1041,7 @@
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('show');
       });
     }, { threshold: 0.12 });
 
@@ -1219,6 +1115,7 @@
     });
 
     const emailForm = document.getElementById('emailForm');
+    const emailFormWrap = document.getElementById('emailFormWrap');
     const formSuccess = document.getElementById('formSuccess');
 
     emailForm.addEventListener('submit', async function (e) {
@@ -1229,14 +1126,19 @@
         const response = await fetch(emailForm.action, {
           method: 'POST',
           body: new FormData(emailForm),
-          headers: {
-            Accept: 'application/json'
-          }
+          headers: { Accept: 'application/json' }
         });
 
         if (response.ok) {
           emailForm.reset();
+          emailFormWrap.style.display = 'none';
           formSuccess.classList.add('show');
+
+          setTimeout(() => {
+            formSuccess.classList.remove('show');
+            emailFormWrap.style.display = 'block';
+            closeModal(document.getElementById('emailModal'));
+          }, 2200);
         }
       } catch (error) {
         console.error(error);
